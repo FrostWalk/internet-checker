@@ -1,0 +1,16 @@
+[Unit]
+Description=Network Checker
+After=multi-user.target
+Requires=network-online.target
+StartLimitBurst=3
+StartLimitIntervalSec=5
+
+
+[Service]
+ExecStart=/usr/local/bin/network-checker
+Restart=on-failure
+RestartSec=3
+DynamicUser=yes
+
+[Install]
+WantedBy=default.target
